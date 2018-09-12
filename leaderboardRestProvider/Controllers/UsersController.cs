@@ -10,7 +10,7 @@ namespace leaderboardRestProvider.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private static int _nextId = 3;
+        private static int _nextId = 3;   
         internal static readonly List<User> UList = new List<User>
         {
             new User {Id = 1, Username = "anders", Enrolled = DateTime.Now},
