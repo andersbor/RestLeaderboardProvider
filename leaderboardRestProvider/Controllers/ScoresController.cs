@@ -14,8 +14,8 @@ namespace leaderboardRestProvider.Controllers
 
         internal static readonly List<Score> SList = new List<Score>
         {
-            new Score{ Id = 1, UserId = 1, Points = 100, Datum = DateTime.Now},
-            new Score{Id = 2, UserId = 1, Points = 132, Datum = DateTime.Now}
+            new Score{ Id = 1, UserId = 1, Points = 100, Created = DateTime.Now},
+            new Score{Id = 2, UserId = 1, Points = 132, Created = DateTime.Now}
         };
 
         // GET api/values
@@ -44,7 +44,7 @@ namespace leaderboardRestProvider.Controllers
             if (!UsersController.UList.Exists(user => user.Id == value.UserId))
                 return null;
             value.Id = _nextId++;
-            value.Datum = DateTime.Now;
+            value.Created = DateTime.Now;
             SList.Add(value);
             return value;
         }

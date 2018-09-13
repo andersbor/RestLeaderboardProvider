@@ -25,6 +25,7 @@ namespace leaderboardRestProvider
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
@@ -41,6 +42,13 @@ namespace leaderboardRestProvider
             }
 
             app.UseHttpsRedirection();
+
+            app.UseCors( // Must come before UseMvc()
+                options =>
+                {
+                    options.AllowAnyOrigin().AllowAnyMethod(); // allow everything from anywhere
+                });
+
             app.UseMvc();
         }
     }

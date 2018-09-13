@@ -7,6 +7,6 @@ namespace leaderboardRestProvider.model
         public int Id { get; set; }
         public int UserId { get; set; }
         public int Points { get; set; }
-        public DateTime Datum { get; set; }
+        public DateTime Created { get; set; }
     }
 }
